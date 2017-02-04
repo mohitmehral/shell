@@ -1,0 +1,6 @@
+This system is for the use of Authorized Personnel only and by accessing this system you hereby consent to the system being monitored by NIC. Any unauthorized use will be considered a breach of NIC Information Security Policies and may also be unlawful under law. NIC  reserves the right to take any action including disciplinary action or legal proceedings against persons involved in the violation of the access restrictions herein
+ansi@10.247.74.42's password: 
+sending incremental file list
+
+sent 642 bytes  received 12 bytes  1.31K bytes/sec
+total size is 137.69K  speedup is 210.54

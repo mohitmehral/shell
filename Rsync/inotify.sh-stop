@@ -1,0 +1,10 @@
+#inotifywait -m  -q --format '%w' /usr/local/nginx/conf/ | while read FILE
+#do
+#  echo "$FILE"
+#done
+
+while true #run indefinitely
+do
+inotifywait -e close_write /usr/local/nginx/conf/ && /bin/bash /home/scripts/Rsync/Rsync.sh 
+#inotifywait -e modify,create /usr/local/nginx/conf/ && /bin/bash /home/scripts/Rsync/Rsync.sh
+done

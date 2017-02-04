@@ -1,0 +1,27 @@
+#=== Plugin Name ===
+Contributors: (mohitmehral@gmail.com and tajinderpalsingh61@gmail.com)
+Tags: rsync
+Tested up to: 2.7
+Stable tag: 2.3
+License: GPLv2 or later
+License URI: https://www.apnok.com/licenses/gpl-2.0.html
+
+== Description ==
+This Script help to auto rsync. Rsync source / destination is configurable in encypted. script will copy with prompting password.
+*rsync
+*expect < for auto password>
+
+== how to run the script
+
+Step 1: Configure the source path / destination path / destinatiopn IP:port which use to help in rsync
+	[]#sh CreateEncryptedSourceFile.sh
+	     It prompt various input values and post that it will create file(source name based) in base directory
+	[]#ls <sourceIP>.pass
+Step 2: Run main script correspondin to created <sourceIP>.pass file
+	[]# sh Rsync.sh "<sourceIP>.pass"	* run without quote
+
+Step 3: open another window,  place the new file in source location and check, file will immidiatly move to destination server
+
+Step 4: logs
+	[]# /home/logs/Rsync/DD-MM-YYYY
+#################################################################
