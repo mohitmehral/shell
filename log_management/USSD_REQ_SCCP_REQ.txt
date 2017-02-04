@@ -1,0 +1,208 @@
+#############################################################################
+91191122334455	------ MSISDN
+Address information (digits): 919876543210	---- USSD GW GT ASSIGN on HLR
+ Address information (digits): 910123456789   ---- HLR or VLR GT
+
+######################################### ###################################
+
+No.     Time         Source                Destination           Protocol Result-Code AVP     Info
+     16 17:30:03.166 92153                  97104                  GSM MAP                      invoke processUnstructuredSS-Request
+#############################################################################
+Frame 16 (278 bytes on wire, 278 bytes captured)
+    Arrival Time: Oct 29, 2012 17:30:03.166404000
+
+    [Time delta from previous captured frame: 0.000123000 seconds]
+    [Time delta from previous displayed frame: 0.000123000 seconds]
+    [Time since reference or first frame: 6.654471000 seconds]
+    Frame Number: 16
+    Frame Length: 278 bytes
+    Capture Length: 278 bytes
+    [Frame is marked: False]
+    [Protocols in frame: eth:ip:sctp:m3ua:sil4:mtp3:sccp:tcap:gsm_map]
+    [Coloring Rule Name: Checksum Errors]
+    [Coloring Rule String: cdp.checksum_bad==1 || edp.checksum_bad==1 || ip.checksum_bad==1 || tcp.checksum_bad==1 || udp.checksum_bad==1]
+Ethernet II, Src: 01:01:01:01:01:01 (01:01:01:01:01:01), Dst: MS-NLB-PhysServer-02_02:02:02:02 (02:02:02:02:02:02)
+    Destination: MS-NLB-PhysServer-02_02:02:02:02 (02:02:02:02:02:02)
+        Address: MS-NLB-PhysServer-02_02:02:02:02 (02:02:02:02:02:02)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+        .... ..1. .... .... .... .... = LG bit: Locally administered address (this is NOT the factory default)
+    Source: 01:01:01:01:01:01 (01:01:01:01:01:01)
+        Address: 01:01:01:01:01:01 (01:01:01:01:01:01)
+        .... ...1 .... .... .... .... = IG bit: Group address (multicast/broadcast)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+    Type: IP (0x0800)
+Internet Protocol, Src: 1.1.1.1 (1.1.1.1), Dst: 2.2.2.2 (2.2.2.2)
+    Version: 4
+    Header length: 20 bytes
+    Differentiated Services Field: 0x10 (DSCP 0x04: Unknown DSCP; ECN: 0x00)
+        0001 00.. = Differentiated Services Codepoint: Unknown (0x04)
+        .... ..0. = ECN-Capable Transport (ECT): 0
+        .... ...0 = ECN-CE: 0
+    Total Length: 264
+    Identification: 0x0000 (0)
+    Flags: 0x04 (Don't Fragment)
+        0... = Reserved bit: Not set
+        .1.. = Don't fragment: Set
+        ..0. = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 255
+    Protocol: SCTP (0x84)
+    Header checksum: 0x74b8 [incorrect, should be 0x745c]
+        [Good: False]
+        [Bad : True]
+    Source: 1.1.1.1 (1.1.1.1)
+    Destination: 2.2.2.2 (2.2.2.2)
+Stream Control Transmission Protocol, Src Port: 0 (0), Dst Port: 0 (0)
+    Source port: 0
+    Destination port: 0
+    Verification tag: 0x00000000
+    Checksum: 0x00000000 [incorrect CRC32C, should be 0x6569a2a3]
+    DATA chunk(ordered, complete segment, TSN: 0, SID: 0, SSN: 0, PPID: 3, payload length: 216 bytes)
+        Chunk type: DATA (0)
+            0... .... = Bit: Stop processing of the packet
+            .0.. .... = Bit: Do not report
+        Chunk flags: 0x03
+            .... ...1 = E-Bit: Last segment
+            .... ..1. = B-Bit: First segment
+            .... .0.. = U-Bit: Ordered deliviery
+        Chunk length: 232
+        TSN: 0
+        Stream Identifier: 0x0000
+        Stream sequence number: 0
+        Payload protocol identifier: M3UA (3)
+MTP 3 User Adaptation Layer
+    Version: Release 1 (1)
+    Reserved: 0x00
+    Message class: Transfer messages (1)
+    Message type: Payload data (DATA) (1)
+    Message length: 216
+    Routing context (1 context)
+        Parameter Tag: Routing context (6)
+        Parameter length: 8
+        Routing context: 104
+    Protocol data (SS7 message of 176 bytes)
+        Parameter Tag: Protocol data (528)
+        Parameter length: 192
+        OPC: 92153
+        DPC: 7156
+        SI: Reserved (11)
+        NI: 3
+        MP: 0
+        SLS: 14
+        MTP3 equivalents
+            OPC: 92153
+            DPC: 7156
+            PC: 92153
+            PC: 7156
+            NI: 3
+    Correlation identifier (9301716)
+        Parameter Tag: Correlation identifier (19)
+        Parameter length: 8
+        Correlation Identifier: 9301716
+Siemens Internal Layer 4
+    SIL4 version: 1
+    SIL4 spare: 0
+    SIL4 msg length: 176
+    SIL4 adjunct application Profile Id: 1
+    Original MTP lvl3 msg
+        Parameter Tag: Original MTP lvl3 msg (0x04f0)
+        Parameter length: 161
+        Message Transfer Part Level 3
+            Service information octet
+                11.. .... = Network indicator: Reserved for national use (0x03)
+                ..00 .... = Spare: 0x00
+                .... 0011 = Service indicator: SCCP (0x03)
+            Routing label
+                .... .... .... .... ..01 1011 1100 0000 = DPC: 97104
+                .... 0110 1111 1100 01.. .... .... .... = OPC: 92153
+                1110 .... .... .... .... .... .... .... = Signalling Link Selector: 14
+        Signalling Connection Control Part
+            Message Type: Unitdata (0x09)
+            .... 0000 = Class: 0x00
+            1000 .... = Message handling: Return message on error (0x08)
+            Pointer to first Mandatory Variable parameter: 3
+            Pointer to second Mandatory Variable parameter: 14
+            Pointer to third Mandatory Variable parameter: 25
+            Called Party address (11 bytes)
+                Address Indicator
+                    .0.. .... = Routing Indicator: Route on GT (0x00)
+                    ..01 00.. = Global Title Indicator: Translation Type, Numbering Plan, Encoding Scheme, and Nature of Address Indicator included (0x04)
+                    .... ..1. = SubSystem Number Indicator: SSN present (0x01)
+                    .... ...0 = Point Code Indicator: Point Code not present (0x00)
+                SubSystem Number: gsmSCF (MAP) or IM-SSF (MAP) or Presence Network Agent (147)
+                [Linked to TCAP, TCAP SSN linked to GSM_MAP]
+                Global Title 0x4 (9 bytes)
+                    Translation Type: 0x00
+                    0001 .... = Numbering Plan: ISDN/telephony (0x01)
+                    .... 0010 = Encoding Scheme: BCD, even number of digits (0x02)
+                    .000 0100 = Nature of Address Indicator: International number (0x04)
+                    Address information (digits): 919876543210	---- USSD GW GT ASSIGN on HLR
+            Calling Party address (11 bytes)
+                Address Indicator
+                    .0.. .... = Routing Indicator: Route on GT (0x00)
+                    ..01 00.. = Global Title Indicator: Translation Type, Numbering Plan, Encoding Scheme, and Nature of Address Indicator included (0x04)
+                    .... ..1. = SubSystem Number Indicator: SSN present (0x01)
+                    .... ...0 = Point Code Indicator: Point Code not present (0x00)
+                SubSystem Number: HLR (Home Location Register) (6)
+                Global Title 0x4 (9 bytes)
+                    Translation Type: 0x00
+                    0001 .... = Numbering Plan: ISDN/telephony (0x01)
+                    .... 0010 = Encoding Scheme: BCD, even number of digits (0x02)
+                    .000 0100 = Nature of Address Indicator: International number (0x04)
+                    Address information (digits): 910123456789   ---- HLR or VLR GT
+        Transaction Capabilities Application Part
+            begin
+                Source Transaction ID
+                    Transaction Id: 0000C517
+                oid: 0.0.17.773.1.1.1 (dialogue-as-id)
+                dialogueRequest
+                    application-context-name: 0.4.0.0.1.0.19.2 (itu-t(0) identified-organization(4) etsi(0) mobileDomain(0) gsm-Network(1) map-ac(0) networkUnstructuredSs(19) version2(2))
+                    useroid: 0.4.0.0.1.1.1.1 (map-DialogueAS)
+                components: 1 item
+                    Item: invoke (1)
+                        invoke
+                            invokeID: 0
+                            opCode: localValue (0)
+                                localValue: 59
+                            CONSTRUCTOR
+                                CONSTRUCTOR Tag
+                                Tag: 0x00
+                                Length: 0x13
+                                Parameter (0x04)
+                                    Tag: 0x04
+                                    Length: 0x01
+                                Data: 0F
+                                Parameter (0x04)
+                                    Tag: 0x04
+                                    Length: 0x05
+                                Data: 2A5A2D3702
+                                Parameter (0x00)
+                                    Tag: 0x00
+                                    Length: 0x07
+                                Data: 91191122334455	------ MSISDN
+        GSM Mobile Application
+            Component: invoke (1)
+                invoke
+                    invokeID: 0
+                    opCode: localValue (0)
+                        localValue: processUnstructuredSS-Request (59)
+                    ussd-DataCodingScheme: 0F
+                    Data coding: 0x0f
+                        SMPP Data Coding Scheme: Unknown (0x0f)
+                        GSM SMS Data Coding
+                        0000 .... = DCS Coding Group for SMS: SMS DCS: General Data Coding indication - Uncompressed text, no message class (0x00)
+                        ..0. .... = DCS Text compression: Uncompressed text
+                        ...0 .... = DCS Class present: No message class
+                        .... 11.. = DCS Character set: Reserved (0x03)
+                        GSM CBS Data Coding
+                        0000 .... = DCS Coding Group for CBS: CBS DCS: Language using the GSM 7-bit default alphabet (0x00)
+                        ..00 1111 = DCS CBS Message language: Language not specified (0x0f)
+                    ussd-String: 2A5A2D3702
+                    USSD String: *459#
+                    msisdn: 911122334455
+                        Country Code: 91 India length 2
+                    1... .... = Extension: No Extension
+                    .001 .... = Nature of number: International Number (0x01)
+                    .... 0001 = Number plan: ISDN/Telephony Numbering (Rec ITU-T E.164) (0x01)
+                    Address digits: 911122334455
+        Padding: 000000
