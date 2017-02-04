@@ -1,0 +1,80 @@
+#/bin/bash
+#Rs_move_gw_logs.sh :: This script move logs from given path to other partition where space available.
+#                       This script facilitate bundle/zip the logs in monthly bases
+#                       This script basically run once in EOD
+# Revision History
+#
+# Date        Name              Reason
+# ----        ----              ------
+# 01-03-2012  Mohit Mehral     Configurable all parameters.
+# ps -Lef|grep to check java / process thread
+###################################################################################################
+
+#Initilization of variables
+CUREENT_DATE=`date -d "0 day" "+%Y%m%d"`      #2012-06-22
+CURRENT_MONTH=`date -d "0 month" "+%B%Y"`      #June2012
+LAST_DATE=`date -d "1 day ago" "+%Y%m%d"`  #2012-06-21
+
+pushd `dirname $0` > /dev/null
+BASE_PATH=`pwd`
+popd > /dev/null
+
+log_file=`basename $1.log`
+log_file_path="$BASE_PATH/$logfile"
+
+SCRIPT_LOGS="/$BAS_PATH/logs"
+JAVA_PATH=`echo $JAVA_HOME`
+PERM=0
+MSG="No Message"
+HOSTIP="192.168.8.20"
+THRESHOLD=80;
+############## Envoirment Variable ###########
+export PATH JAVA_HOME JRE_HOME CLASSPATH
+#############################################
+
+if [ ! -d $BASE_PATH ];then
+        echo " Base Directory not exists![$BASE_PATH]"
+        exit
+fi
+cd $BASE_PATH
+if [ ! -d $SCRIPT_LOGS ];then
+                echo " Log Directory note found [$SCRIPT_LOGS]"
+                mkdir -p $SCRIPT_LOGS
+        fi
+
+##LOG Directory
+if [ ! -d $CUREENT_DATE ];then
+                echo " Log Directory note found [$CUREENT_DATE]"
+                mkdir -p $CUREENT_DATE
+        fi
+
+log_file_path="$SCRIPT_LOGS/${CUREENT_DATE}-"`basename $0 .sh`".log"
+
+echo "############ Script:$log_file_path##################" >$log_file_path
+#####Funcations
+
+cd $JAVA_PATH/bin
+BOOTSTRAP=`${JAVA_PATH}/bin/jps|grep Bootstrap|cut -d " " -f1`
+if [ $? -ne 0 ];then
+                        echo "No Bootstrap PID exists[${JAVA_PATH}/bin/jps|grep Bootstrap]" >>$log_file_path
+                        exit
+
+#If log file not exists
+else
+        if [ ! -f ${BASE_PATH}/${CUREENT_DATE}/gcutil.txt ];then
+                touch ${BASE_PATH}/${CUREENT_DATE}/gcutil.txt
+                echo "Timestamp         S0     S1     E      O      P     YGC     YGCT    FGC    FGCT     GCT" > ${BASE_PATH}/${CUREENT_DATE}/gcutil.txt
+        fi
+
+        ./jstat -gcutil -t $BOOTSTRAP|grep -v Timestamp >> ${BASE_PATH}/${CUREENT_DATE}/gcutil.txt
+        PERM=`jstat -gcutil -t  ${BOOTSTRAP}  | grep -v Timestamp|awk -F " " '{print $6}'`
+
+                #if [ ${PERM} -ge ${THRESHOLD} ];then
+                if [ $PERM > $THRESHOLD ];then
+                         MSG="MCOM: Alert `date` on ${HOSTIP} Server Current Perm is  :: ${PERM}%"
+                         `elinks --dump "http://192.168.9.34:8085/BulkMessaging/sendingSMS?ani=919815898906&uname=Mcommerce&passwd=341682&cli=SMSSDL&message=$MSG" >/dev/null`
+                fi
+
+#continue;
+fi
+
