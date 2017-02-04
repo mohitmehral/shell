@@ -1,0 +1,9 @@
+This system is for the use of Authorized Personnel only and by accessing this system you hereby consent to the system being monitored by NIC. Any unauthorized use will be considered a breach of NIC Information Security Policies and may also be unlawful under law. NIC  reserves the right to take any action including disciplinary action or legal proceedings against persons involved in the violation of the access restrictions herein
+ansi@10.247.74.42's password: 
+sending incremental file list
+./
+nginx.conf
+       1.37K   5%    0.00kB/s    0:00:00      24.66K 100%   22.20MB/s    0:00:00 (xfer#1, to-check=16/27)
+
+sent 1.02K bytes  received 250 bytes  2.55K bytes/sec
+total size is 137.69K  speedup is 108.16

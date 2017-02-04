@@ -1,0 +1,35 @@
+#=== Plugin Name ===
+Contributors: (mohitmehral@gmail.com and tajinderpalsingh61@gmail.com)
+Tags: inotify, rsync
+Requires at least: inotify-tools-3.13-1.el6.rf.x86_64.rpm ( corresponding to your machine architeture. i am using x86_64)
+Tested up to: 4.7
+Stable tag: 4.3
+License: GPLv2 or later
+License URI: https://www.apnok.com/licenses/gpl-2.0.html
+
+== Description ==
+This Script help to auto rsync with help of inotify funcationlity. Rsync source / destination is configurable and encypted.
+*rsync
+*inotify
+
+== how to run the script
+
+Step 1: Configure the source path / destination path / destinatiopn IP:port which use to help in rsync
+	[]#sh CreateEncryptedSourceFile.sh
+	     It prompt various input values and post that it will create file(source name based) in base directory. You can create mutiple pass file
+		 and these pass file will run indiviually
+	[]#ls <sourceIP>.pass
+Step 2: Run main script correspondin to created <sourceIP>.pass file
+	[]# sh inotify.sh "<sourceIP>.pass"	* run without quote
+
+Step 3: open another window,  place the new file in source location and check, file will immidiatly move to destination server
+
+Step 4: logs
+
+*   "Contributors" is a comma separated list of wordpress.org usernames
+*   "Tags" is a comma separated list of tags that apply to the plugin
+*   "Requires at least" is the lowest version that the plugin will work on
+*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
+*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
+stable.
+ 
